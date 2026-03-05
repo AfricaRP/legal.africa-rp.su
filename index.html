@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfricaRP — Документы</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+:root {
+    --white: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --border: #d5d5d5;
+    --border-light: #ececec;
+    --accent: #111111;
+    --tag-bg: #f0f0f0;
+    --tag-text: #444444;
+    --footer-bg: #0a0a0a;
+    --card-shadow-hover: 0 14px 50px rgba(0,0,0,0.1);
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --max-width: 1280px;
+    --header-height: 76px;
+    --card-padding: 2.25rem;
+    --card-radius: 20px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--white);
+    color: var(--text-primary);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+}
+
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 4px; }
+
+.header {
+    position: sticky;
+    top: 0; z-index: 100;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.logo .scales-icon { width: 30px; height: 30px; display: inline-flex; flex-shrink: 0; }
+
+.logo-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-text .sep { color: var(--border); font-weight: 300; font-size: 1.35rem; }
+.logo-text .sub { font-weight: 400; color: var(--text-muted); }
+
+.header-right { display: flex; align-items: center; gap: 0.15rem; }
+.header-nav { display: flex; align-items: center; gap: 0.15rem; }
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.55rem 1.1rem;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.header-nav a:hover { color: var(--text-primary); background: var(--tag-bg); }
+
+.mobile-burger {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    padding: 0.5rem; color: var(--text-primary);
+}
+.mobile-burger .material-icons-round { font-size: 28px; }
+
+.hero {
+    padding: 5.5rem 2.5rem 3rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    line-height: 1.08;
+    margin-bottom: 1.2rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.search-section {
+    max-width: 660px;
+    margin: 0 auto 1.25rem;
+    padding: 0 2.5rem;
+}
+
+.search-wrapper { position: relative; }
+
+.search-wrapper .material-icons-round {
+    position: absolute;
+    left: 1.2rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    font-size: 23px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1.05rem 1.2rem 1.05rem 3.3rem;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--white);
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-input::placeholder { color: var(--text-muted); }
+
+.search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(17,17,17,0.07);
+}
+
+.filters {
+    max-width: 660px;
+    margin: 0 auto 3.5rem;
+    padding: 0 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    padding: 0.55rem 1.15rem;
+    border: 2px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.92rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover { border-color: var(--text-muted); color: var(--text-primary); }
+.filter-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+.docs-anchor {
+    display: block;
+    position: relative;
+    top: calc(-1 * var(--header-height) - 2rem);
+    visibility: hidden;
+    height: 0;
+}
+
+.main-content {
+    flex: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+    width: 100%;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.25rem;
+}
+
+.doc-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.doc-card:hover {
+    border-color: #b0b0b0;
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-3px);
+}
+
+.doc-card:hover::before { transform: scaleX(1); }
+
+.doc-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+.doc-icon {
+    width: 52px; height: 52px;
+    background: var(--tag-bg);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+
+.doc-icon .material-icons-round { font-size: 26px; color: var(--text-secondary); }
+
+.doc-status {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.25rem 0.65rem;
+    border-radius: 7px;
+}
+
+.doc-status.active { background: #ecfdf5; color: #059669; }
+.doc-status.draft  { background: #fef3c7; color: #b45309; }
+
+.doc-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin-bottom: 0.65rem;
+    line-height: 1.3;
+}
+
+.doc-card .doc-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.doc-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border-light);
+    position: relative;
+    min-height: 40px;
+}
+
+.doc-footer-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.doc-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.doc-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+    padding: 0.25rem 0.65rem;
+    border-radius: 7px;
+}
+
+.doc-date { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+
+.doc-footer-arrow {
+    position: absolute;
+    inset: 0;
+    padding-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+.doc-footer-arrow .arrow-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.doc-footer-arrow .material-icons-round {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.doc-card:hover .doc-footer-info { opacity: 0; transform: translateX(-8px); }
+.doc-card:hover .doc-footer-arrow { opacity: 1; transform: translateX(0); }
+.doc-card:hover .doc-footer-arrow .material-icons-round { transform: translateX(3px); }
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    display: none;
+}
+.no-results.visible { display: block; }
+.no-results-icon {
+    width: 76px; height: 76px;
+    margin: 0 auto 1.5rem;
+    background: var(--tag-bg);
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+}
+.no-results-icon .material-icons-round { font-size: 34px; color: var(--text-muted); }
+.no-results h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+.no-results p { color: var(--text-secondary); font-size: 1rem; }
+
+.doc-view-overlay {
+    display: none;
+    position: fixed;
+    inset: 0; z-index: 200;
+    background: var(--white);
+    overflow-y: auto;
+    animation: fadeInUp 0.3s ease;
+}
+.doc-view-overlay.active { display: flex; flex-direction: column; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.doc-view-header {
+    position: sticky;
+    top: 0; z-index: 10;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.doc-view-header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doc-view-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: none; border: none;
+    font-family: inherit;
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+.doc-view-back:hover { background: var(--tag-bg); color: var(--text-primary); }
+.doc-view-back .material-icons-round { font-size: 21px; }
+
+.doc-view-title-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.doc-view-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem 3rem;
+}
+
+.doc-view-title-bar { margin-bottom: 2rem; }
+
+.doc-view-title-bar h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+}
+
+.doc-view-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    align-items: center;
+}
+
+.doc-view-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.doc-view-meta-item strong { color: var(--text-secondary); font-weight: 600; }
+
+.pdf-container {
+    flex: 1;
+    background: #f5f5f5;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.35rem;
+    background: #fafafa;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.pdf-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.pdf-toolbar-left .material-icons-round { font-size: 20px; color: var(--text-muted); flex-shrink: 0; }
+.pdf-toolbar-left span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.pdf-toolbar-right { display: flex; gap: 0.4rem; flex-shrink: 0; }
+
+.pdf-tb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    height: 38px;
+    padding: 0 0.85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    background: var(--white);
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+.pdf-tb-btn:hover { border-color: var(--text-muted); color: var(--text-primary); }
+.pdf-tb-btn .material-icons-round { font-size: 18px; }
+
+.pdf-frame-wrapper {
+    flex: 1;
+    min-height: 80vh;
+    position: relative;
+}
+
+.pdf-frame-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 80vh;
+    border: none;
+    display: block;
+}
+
+.pdf-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 400px;
+}
+
+.pdf-fallback .material-icons-round {
+    font-size: 56px;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.pdf-fallback h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.pdf-fallback p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+.pdf-fallback-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.5rem;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.pdf-fallback-btn:hover { background: var(--text-secondary); }
+.pdf-fallback-btn .material-icons-round { font-size: 20px; }
+
+.doc-view-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-primary);
+    padding: 1rem 0 0;
+    flex: 1;
+}
+
+.doc-view-body h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 2.5rem 0 0.9rem;
+}
+
+.doc-view-body h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2rem 0 0.7rem;
+}
+
+.doc-view-body p { margin-bottom: 1.1rem; color: var(--text-secondary); }
+.doc-view-body ul, .doc-view-body ol { margin-bottom: 1.1rem; padding-left: 1.5rem; }
+.doc-view-body li { margin-bottom: 0.55rem; color: var(--text-secondary); }
+.doc-view-body strong { color: var(--text-primary); font-weight: 600; }
+
+.doc-view-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.35rem;
+    margin: 1.5rem 0;
+    background: var(--tag-bg);
+    border-radius: 0 12px 12px 0;
+}
+.doc-view-body blockquote p { margin-bottom: 0; color: var(--text-primary); font-weight: 500; }
+
+.doc-bottom-bar {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.doc-bottom-bar-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.doc-bottom-bar-info .material-icons-round { font-size: 18px; }
+
+.doc-bottom-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.doc-bottom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1.15rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--white);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.doc-bottom-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+    background: var(--tag-bg);
+}
+
+.doc-bottom-btn .material-icons-round { font-size: 19px; }
+
+.doc-bottom-btn.primary {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+}
+
+.doc-bottom-btn.primary:hover {
+    background: #333;
+    border-color: #333;
+}
+
+@media print {
+    .header, .footer, .doc-view-header, .doc-view-title-bar,
+    .doc-bottom-bar, .scroll-top-btn, .toast,
+    .pdf-toolbar { display: none !important; }
+    .doc-view-overlay { position: static !important; }
+    .doc-view-content { padding: 0 !important; max-width: 100% !important; }
+    .doc-view-body { padding: 0 !important; }
+    body { background: white !important; }
+}
+
+.toast {
+    position: fixed;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ============ SCROLL TO TOP — ВСЕГДА КОНТРАСТНАЯ ============ */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 52px; height: 52px;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 0 2px rgba(255,255,255,0.15);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+    background: #444444;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25), 0 0 0 2px rgba(255,255,255,0.2);
+}
+
+.scroll-top-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.scroll-top-btn .material-icons-round { font-size: 26px; }
+
+.footer { background: var(--footer-bg); color: #999; margin-top: auto; }
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand { max-width: 320px; }
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo .scales-icon { width: 24px; height: 24px; display: inline-flex; flex-shrink: 0; }
+
+.footer-logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+.footer-logo-text .sub { font-weight: 400; color: #777; }
+
+.footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #666; }
+
+.footer-columns { display: flex; gap: 5rem; flex-wrap: wrap; }
+
+.footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    margin-bottom: 1.15rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.65rem; }
+
+.footer-col a {
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: #777;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.footer-col a:hover { color: #e5e5e5; }
+
+.footer-col .contact-icon {
+    width: 20px; height: 20px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.footer-col .contact-icon svg { width: 18px; height: 18px; fill: currentColor; }
+
+.footer-bottom {
+    padding-top: 2.5rem;
+    border-top: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom p { font-size: 0.82rem; color: #444; }
+
+@media (max-width: 900px) { .docs-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 2rem; }
+    .hero h1 { font-size: 2.3rem; letter-spacing: -1px; }
+    .hero p { font-size: 1.05rem; }
+    .header-inner { padding: 0 1.25rem; }
+    .header-nav { display: none; }
+    .mobile-burger { display: block; }
+    .main-content, .search-section, .filters { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .footer-top { flex-direction: column; }
+    .footer-columns { gap: 2.5rem; }
+    .footer-inner { padding: 3rem 1.5rem; }
+    .doc-view-content { padding: 1.5rem 1.25rem 2rem; }
+    .doc-view-header-inner { padding: 0 1.25rem; }
+    .doc-view-title-bar h1 { font-size: 1.6rem; }
+    .doc-view-title-text { display: none; }
+    .pdf-frame-wrapper { min-height: 60vh; }
+    .pdf-frame-wrapper iframe { min-height: 60vh; }
+    .scroll-top-btn { right: 1.25rem; bottom: 1.25rem; width: 48px; height: 48px; border-radius: 14px; }
+    .pdf-tb-btn span:not(.material-icons-round) { display: none; }
+    .pdf-tb-btn { padding: 0; width: 38px; }
+    .doc-bottom-btn span:not(.material-icons-round) { display: none; }
+    .doc-bottom-btn { padding: 0.6rem; }
+}
+
+@media (max-width: 420px) {
+    .hero h1 { font-size: 1.9rem; }
+    .filter-btn { font-size: 0.82rem; padding: 0.45rem 0.85rem; }
+}
+    </style>
+</head>
+<body>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="scales" viewBox="0 0 64 64">
+        <g stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <line x1="32" y1="6" x2="32" y2="52"/>
+            <line x1="24" y1="52" x2="40" y2="52"/>
+            <line x1="12" y1="16" x2="52" y2="16"/>
+            <line x1="12" y1="16" x2="6" y2="34"/>
+            <line x1="52" y1="16" x2="58" y2="34"/>
+            <path d="M6 34 Q6 42 16 42 Q26 42 26 34"/>
+            <line x1="12" y1="16" x2="26" y2="34"/>
+            <path d="M38 34 Q38 42 48 42 Q58 42 58 34"/>
+            <line x1="52" y1="16" x2="38" y2="34"/>
+            <circle cx="32" cy="10" r="4"/>
+        </g>
+    </symbol>
+</svg>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="#" class="logo" onclick="goHome(event)">
+            <span class="scales-icon"><svg width="28" height="28"><use href="#scales"/></svg></span>
+            <div class="logo-text">AfricaRP <span class="sep">|</span> <span class="sub">Документы</span></div>
+        </a>
+        <div class="header-right">
+            <nav class="header-nav">
+                <a href="#" onclick="goHome(event)">Главная</a>
+                <a href="#docs-anchor" onclick="scrollToDocs(event)">Документы</a>
+            </nav>
+            <button class="mobile-burger" onclick="document.querySelector('.header-nav').classList.toggle('show')">
+                <span class="material-icons-round">menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div id="mainPage">
+    <section class="hero">
+        <h1>Правовые документы проекта</h1>
+        <p>Все пользовательские соглашения, правила и политики AfricaRP в одном месте</p>
+    </section>
+
+    <div class="search-section">
+        <div class="search-wrapper">
+            <span class="material-icons-round">search</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Поиск по документам..." oninput="filterDocuments()">
+        </div>
+    </div>
+
+    <div class="filters" id="filters"></div>
+    <span class="docs-anchor" id="docs-anchor"></span>
+
+    <main class="main-content">
+        <div class="docs-grid" id="docsGrid"></div>
+        <div class="no-results" id="noResults">
+            <div class="no-results-icon"><span class="material-icons-round">search_off</span></div>
+            <h3>Ничего не найдено</h3>
+            <p>Попробуйте изменить параметры поиска</p>
+        </div>
+    </main>
+</div>
+
+<div class="doc-view-overlay" id="docView">
+    <div class="doc-view-header">
+        <div class="doc-view-header-inner">
+            <button class="doc-view-back" onclick="closeDocument()">
+                <span class="material-icons-round">arrow_back</span> Назад
+            </button>
+            <span class="doc-view-title-text" id="docViewHeaderTitle"></span>
+        </div>
+    </div>
+    <div class="doc-view-content" id="docViewContent"></div>
+</div>
+
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+    <span class="material-icons-round">keyboard_arrow_up</span>
+</button>
+
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="scales-icon"><svg width="22" height="22" style="color:#fff"><use href="#scales"/></svg></span>
+                    <span class="footer-logo-text">AfricaRP <span class="sub">Документы</span></span>
+                </div>
+                <p>Игровой Minecraft проект с уникальной атмосферой.</p>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col" id="footerDocsCol"><h4>Документы</h4><ul></ul></div>
+                <div class="footer-col" id="footerContactsCol"><h4>Контакты</h4><ul></ul></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p id="footerCopyright"></p></div>
+    </div>
+</footer>
+
+<script>
+const SITE_CONFIG = {
+    email:    'support@africa-rp.su',
+    discord:  'https://discord.gg/MydsqBKh8P',
+    telegram: 'https://t.me/africarp',
+    copyright: '© 2026 AfricaRP. Все права защищены.',
+
+    categories: [
+        { id: 'all',       label: 'Все' },
+        { id: 'rules',     label: 'Правила' },
+        { id: 'policy',    label: 'Политики' },
+        { id: 'agreement', label: 'Соглашения' },
+        { id: 'other',     label: 'Прочее' },
+    ],
+
+    categoryIcons: {
+        rules:     'shield',
+        policy:    'policy',
+        agreement: 'description',
+        other:     'folder_open',
+    },
+
+    documents: [
+        {
+            id: 'rules',
+            title: 'Правила сервера',
+            description: 'Основные правила поведения и игры на сервере AfricaRP. Обязательны для всех игроков.',
+            category: 'rules', status: 'active', statusText: 'Действует',
+            tags: ['Правила', 'Обязательно'], date: '07.03.2026', version: '1.0',
+            type: 'pdf', file: 'docs/rules.pdf',
+        },
+        {
+            id: 'privacy',
+            title: 'Политика конфиденциальности',
+            description: 'Информация о сборе, хранении и обработке персональных данных пользователей.',
+            category: 'policy', status: 'active', statusText: 'Действует',
+            tags: ['Политика', 'Данные'], date: '07.03.2026', version: '1.0',
+            type: 'pdf', file: 'docs/privacy.pdf',
+        },
+        {
+            id: 'terms',
+            title: 'Пользовательское соглашение',
+            description: 'Условия использования сервисов проекта AfricaRP, права и обязанности сторон.',
+            category: 'agreement', status: 'active', statusText: 'Действует',
+            tags: ['Соглашение', 'Основное'], date: '07.03.2026', version: '1.0',
+            type: 'pdf', file: 'docs/terms.pdf',
+        },
+        {
+            id: 'offer',
+            title: 'Публичная оферта',
+            description: 'Условия приобретения дополнительных услуг и привилегий на сервере.',
+            category: 'agreement', status: 'active', statusText: 'Действует',
+            tags: ['Оферта', 'Донат'], date: '07.03.2026', version: '1.0',
+            type: 'pdf', file: 'docs/offer.pdf',
+        },
+        {
+            id: 'moderation',
+            title: 'Политика модерации',
+            description: 'Принципы работы модерации, порядок рассмотрения жалоб и обжалования решений.',
+            category: 'policy', status: 'active', statusText: 'Действует',
+            tags: ['Модерация', 'Политика'], date: '07.03.2026', version: '1.0',
+            type: 'pdf', file: 'docs/moderation.pdf',
+        },
+        {
+            id: 'cookies',
+            title: 'Политика использования Cookies',
+            description: 'Информация об использовании файлов cookie на сайте проекта.',
+            category: 'policy', status: 'active', statusText: 'Действует',
+            tags: ['Cookies', 'Политика'], date: '07.03.2026', version: '1.0',
+            type: 'html',
+            content: `
+                <h2>1. Что такое Cookie?</h2>
+                <p>Cookie — это небольшие текстовые файлы, которые сохраняются на вашем устройстве при посещении нашего сайта.</p>
+                <h2>2. Какие Cookie мы используем</h2>
+                <ul>
+                    <li><strong>Необходимые</strong> — базовый функционал</li>
+                    <li><strong>Аналитические</strong> — взаимодействие с сайтом</li>
+                    <li><strong>Функциональные</strong> — предпочтения</li>
+                </ul>
+                <h2>3. Управление Cookie</h2>
+                <p>Вы можете управлять Cookie в настройках браузера.</p>
+                <blockquote><p>Продолжая использовать сайт, вы соглашаетесь с использованием Cookie.</p></blockquote>
+            `
+        },
+        {
+            id: 'changelog',
+            title: 'История изменений',
+            description: 'Журнал всех изменений и обновлений правовых документов проекта.',
+            category: 'other', status: 'active', statusText: 'Обновляется',
+            tags: ['Лог', 'Обновления'], date: '07.03.2026', version: '—',
+            type: 'html',
+            content: `
+                <h2>2026</h2>
+                <h3>Март 2026</h3>
+                <ul>
+                    <li><strong>07.03</strong> — Добавлены все документы версии 1.0</li>
+                    <li><strong>06.03</strong> — Создан веб-ресурс https://legal.africa-rp.su</li>
+                </ul>
+                <blockquote><p>Рекомендуем периодически проверять актуальные версии.</p></blockquote>
+            `
+        },
+    ],
+};
+
+let currentFilter = 'all';
+let currentDocId = null;
+
+function init() {
+    renderFilters();
+    renderCards();
+    renderFooter();
+    checkHash();
+    initScrollTop();
+}
+
+function renderFilters() {
+    document.getElementById('filters').innerHTML = SITE_CONFIG.categories.map(c =>
+        `<button class="filter-btn${c.id==='all'?' active':''}" onclick="setFilter(this,'${c.id}')">${c.label}</button>`
+    ).join('');
+}
+
+function renderCards() {
+    const grid = document.getElementById('docsGrid');
+    const search = document.getElementById('searchInput').value.toLowerCase().trim();
+    const noResults = document.getElementById('noResults');
+    const filtered = SITE_CONFIG.documents.filter(doc => {
+        const mf = currentFilter === 'all' || doc.category === currentFilter;
+        const ms = !search || doc.title.toLowerCase().includes(search) ||
+            doc.description.toLowerCase().includes(search) ||
+            doc.tags.some(t => t.toLowerCase().includes(search));
+        return mf && ms;
+    });
+    if (!filtered.length) { grid.innerHTML = ''; noResults.classList.add('visible'); return; }
+    noResults.classList.remove('visible');
+    grid.innerHTML = filtered.map(doc => {
+        const icon = SITE_CONFIG.categoryIcons[doc.category] || 'article';
+        return `
+        <div class="doc-card" onclick="openDocument('${doc.id}')">
+            <div class="doc-card-header">
+                <div class="doc-icon"><span class="material-icons-round">${icon}</span></div>
+                <span class="doc-status ${doc.status}">${doc.statusText}</span>
+            </div>
+            <h3>${doc.title}</h3>
+            <p class="doc-desc">${doc.description}</p>
+            <div class="doc-card-footer">
+                <div class="doc-footer-info">
+                    <div class="doc-tags">${doc.tags.map(t=>`<span class="doc-tag">${t}</span>`).join('')}</div>
+                    <span class="doc-date">${doc.date}</span>
+                </div>
+                <div class="doc-footer-arrow">
+                    <div class="arrow-content">Открыть <span class="material-icons-round">east</span></div>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function renderFooter() {
+    document.querySelector('#footerDocsCol ul').innerHTML = SITE_CONFIG.documents.slice(0,5).map(d =>
+        `<li><a href="#" onclick="openDocById('${d.id}',event)">${d.title}</a></li>`).join('');
+    let c = '';
+    if (SITE_CONFIG.email) c += `<li><a href="mailto:${SITE_CONFIG.email}"><span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>${SITE_CONFIG.email}</a></li>`;
+    if (SITE_CONFIG.discord) c += `<li><a href="${SITE_CONFIG.discord}" target="_blank"><span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></span>Discord</a></li>`;
+    if (SITE_CONFIG.telegram) c += `<li><a href="${SITE_CONFIG.telegram}" target="_blank"><span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>Telegram</a></li>`;
+    document.querySelector('#footerContactsCol ul').innerHTML = c;
+    document.getElementById('footerCopyright').textContent = SITE_CONFIG.copyright;
+}
+
+function setFilter(btn, filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCards();
+}
+
+function filterDocuments() { renderCards(); }
+
+function scrollToDocs(e) {
+    e.preventDefault();
+    document.getElementById('docs-anchor').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openDocument(id) {
+    const doc = SITE_CONFIG.documents.find(d => d.id === id);
+    if (!doc) return;
+    currentDocId = id;
+    const container = document.getElementById('docViewContent');
+    document.getElementById('docViewHeaderTitle').textContent = doc.title;
+    const isPDF = doc.type === 'pdf' && doc.file;
+    const metaHTML = `<div class="doc-view-title-bar"><h1>${doc.title}</h1>
+        <div class="doc-view-meta">
+            <div class="doc-view-meta-item"><strong>Версия:</strong> ${doc.version}</div>
+            <div class="doc-view-meta-item"><strong>Обновлено:</strong> ${doc.date}</div>
+            <div class="doc-view-meta-item"><strong>Статус:</strong> <span class="doc-status ${doc.status}">${doc.statusText}</span></div>
+        </div></div>`;
+    const bottomBar = isPDF
+        ? `<div class="doc-bottom-bar">
+            <div class="doc-bottom-bar-info"><span class="material-icons-round">info_outline</span>Версия ${doc.version} от ${doc.date}</div>
+            <div class="doc-bottom-actions">
+                <button class="doc-bottom-btn" onclick="copyLink()"><span class="material-icons-round">link</span><span>Скопировать ссылку</span></button>
+                <button class="doc-bottom-btn primary" onclick="openPdfExternal()"><span class="material-icons-round">open_in_new</span><span>Открыть PDF</span></button>
+            </div></div>`
+        : `<div class="doc-bottom-bar">
+            <div class="doc-bottom-bar-info"><span class="material-icons-round">info_outline</span>Версия ${doc.version} от ${doc.date}</div>
+            <div class="doc-bottom-actions">
+                <button class="doc-bottom-btn" onclick="copyLink()"><span class="material-icons-round">link</span><span>Скопировать ссылку</span></button>
+                <button class="doc-bottom-btn" onclick="printHTMLDocument()"><span class="material-icons-round">print</span><span>Печать</span></button>
+            </div></div>`;
+
+    if (isPDF) {
+        container.innerHTML = `${metaHTML}
+            <div class="pdf-container">
+                <div class="pdf-toolbar">
+                    <div class="pdf-toolbar-left"><span class="material-icons-round">picture_as_pdf</span><span>${doc.title}</span></div>
+                    <div class="pdf-toolbar-right">
+                        <button class="pdf-tb-btn" onclick="copyLink()" title="Скопировать ссылку"><span class="material-icons-round">link</span></button>
+                        <button class="pdf-tb-btn" onclick="openPdfExternal()" title="Открыть в новой вкладке"><span class="material-icons-round">open_in_new</span></button>
+                    </div>
+                </div>
+                <div class="pdf-frame-wrapper" id="pdfFrameWrapper">
+                    <iframe src="${doc.file}#toolbar=0&navpanes=0&view=FitH" title="${doc.title}" onload="this.parentElement.classList.add('loaded')" onerror="showPdfFallback()"></iframe>
+                </div>
+            </div>${bottomBar}`;
+        setTimeout(() => {
+            const w = document.getElementById('pdfFrameWrapper');
+            if (w && !w.classList.contains('loaded') && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) showPdfFallback();
+        }, 3000);
+    } else {
+        container.innerHTML = `${metaHTML}<div class="doc-view-body" id="docHtmlBody">${doc.content||'<p>Содержимое не найдено.</p>'}</div>${bottomBar}`;
+    }
+
+    document.getElementById('docView').classList.add('active');
+    document.getElementById('mainPage').style.display = 'none';
+    document.querySelector('.footer').style.display = 'none';
+    document.getElementById('scrollTopBtn').classList.remove('visible');
+    document.getElementById('docView').scrollTop = 0;
+    history.pushState({ docId: id }, '', `#doc-${id}`);
+}
+
+function showPdfFallback() {
+    const doc = SITE_CONFIG.documents.find(d => d.id === currentDocId);
+    if (!doc) return;
+    const w = document.getElementById('pdfFrameWrapper');
+    if (!w) return;
+    w.innerHTML = `<div class="pdf-fallback"><span class="material-icons-round">picture_as_pdf</span>
+        <h3>Не удалось отобразить PDF</h3><p>Откройте документ напрямую.</p>
+        <a href="${doc.file}" target="_blank" class="pdf-fallback-btn"><span class="material-icons-round">open_in_new</span>Открыть PDF</a></div>`;
+}
+
+function openDocById(id, e) { if (e) e.preventDefault(); openDocument(id); }
+
+function closeDocument() {
+    document.getElementById('docView').classList.remove('active');
+    document.getElementById('mainPage').style.display = '';
+    document.querySelector('.footer').style.display = '';
+    currentDocId = null;
+    history.pushState(null, '', location.pathname);
+}
+
+function goHome(e) {
+    e.preventDefault();
+    if (currentDocId) closeDocument();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function openPdfExternal() {
+    const doc = SITE_CONFIG.documents.find(d => d.id === currentDocId);
+    if (doc && doc.file) window.open(doc.file, '_blank');
+}
+
+function printHTMLDocument() {
+    const body = document.getElementById('docHtmlBody');
+    if (!body) return;
+    const doc = SITE_CONFIG.documents.find(d => d.id === currentDocId);
+    const w = window.open('', '_blank');
+    w.document.write(`<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">
+        <title>${doc?.title||'Документ'}</title><style>
+        body{font-family:'Segoe UI',Tahoma,sans-serif;max-width:700px;margin:2rem auto;padding:0 1.5rem;color:#222;font-size:14px;line-height:1.8}
+        h2{font-size:1.3em;margin:2em 0 .6em}h3{font-size:1.1em;margin:1.5em 0 .5em}p{margin-bottom:.8em}
+        ul,ol{margin-bottom:.8em;padding-left:1.5em}li{margin-bottom:.3em}
+        blockquote{border-left:3px solid #333;padding:.8em 1em;margin:1em 0;background:#f5f5f5}blockquote p{margin:0}
+        </style></head><body>${body.innerHTML}</body></html>`);
+    w.document.close(); w.focus();
+    setTimeout(() => w.print(), 300);
+}
+
+function copyLink() {
+    const url = location.origin + location.pathname + '#doc-' + currentDocId;
+    navigator.clipboard.writeText(url).then(() => showToast('Ссылка скопирована')).catch(() => {
+        const el = document.createElement('textarea');
+        el.value = url; document.body.appendChild(el); el.select();
+        document.execCommand('copy'); document.body.removeChild(el);
+        showToast('Ссылка скопирована');
+    });
+}
+
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function checkHash() {
+    const h = location.hash;
+    if (h.startsWith('#doc-')) {
+        const id = h.replace('#doc-', '');
+        if (SITE_CONFIG.documents.find(d => d.id === id)) openDocument(id);
+    }
+}
+
+window.addEventListener('popstate', () => {
+    const h = location.hash;
+    if (h.startsWith('#doc-')) openDocument(h.replace('#doc-', ''));
+    else closeDocument();
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && currentDocId) closeDocument(); });
+
+function initScrollTop() {
+    const btn = document.getElementById('scrollTopBtn');
+    const check = () => {
+        const dv = document.getElementById('docView');
+        const isOpen = dv.classList.contains('active');
+        const y = isOpen ? dv.scrollTop : window.scrollY;
+        btn.classList.toggle('visible', y > 400);
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    document.getElementById('docView').addEventListener('scroll', check, { passive: true });
+}
+
+function scrollToTop() {
+    const dv = document.getElementById('docView');
+    if (dv.classList.contains('active')) dv.scrollTo({ top: 0, behavior: 'smooth' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+init();
+</script>
+</body>
+</html>
