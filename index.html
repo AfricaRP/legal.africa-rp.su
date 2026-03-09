@@ -968,27 +968,18 @@ const SITE_CONFIG = {
 
     categories: [
         { id: 'all',       label: 'Все' },
-        { id: 'rules',     label: 'Правила' },
         { id: 'policy',    label: 'Политики' },
         { id: 'agreement', label: 'Соглашения' },
         { id: 'other',     label: 'Прочее' },
     ],
 
     categoryIcons: {
-        rules:     'shield',
         policy:    'policy',
         agreement: 'description',
         other:     'folder_open',
     },
 
     documents: [
-        {
-            id: 'rules',
-            title: 'Правила сервера',
-            description: 'Основные правила поведения и игры на сервере AfricaRP. Обязательны для всех игроков.',
-            category: 'rules', status: 'active', statusText: 'Действует',
-            tags: ['Правила', 'Обязательно'], date: '07.03.2026', version: '1.0',
-            type: 'pdf', file: 'docs/rules.pdf',
         },
         {
             id: 'privacy',
@@ -1298,4 +1289,5 @@ function scrollToTop() {
 init();
 </script>
 </body>
+
 </html>
