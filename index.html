@@ -834,7 +834,27 @@ body {
     .hero h1 { font-size: 2.3rem; letter-spacing: -1px; }
     .hero p { font-size: 1.05rem; }
     .header-inner { padding: 0 1.25rem; }
-    .header-nav { display: none; }
+    .header-nav {
+        display: none; /* скрыто по умолчанию */
+    }
+    .header-nav.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height); /* высота шапки */
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        z-index: 99;
+    }
+    .header-nav.show a {
+        padding: 0.75rem 0;
+        width: 100%;
+        text-align: center;
+    }
     .mobile-burger { display: block; }
     .main-content, .search-section, .filters { padding-left: 1.25rem; padding-right: 1.25rem; }
     .footer-top { flex-direction: column; }
@@ -1283,6 +1303,7 @@ init();
 </body>
 
 </html>
+
 
 
 
